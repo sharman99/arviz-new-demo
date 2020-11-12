@@ -1,0 +1,255 @@
+.App {
+    text-align: center;
+    background: #2D2A2A;
+    color: white;
+}
+
+.topHalf{
+    width: 100%;
+    height:75%;
+    display: flex;
+    flex-direction: row;
+}
+
+.bottomHalf{
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: row;
+}
+
+.scrollView {
+    width: 70%;
+    height: 100%;
+    background: #4A4949;
+}
+
+.currentSimulationView {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.simulateChoices {
+    display: flex;
+    flex-direction: column;
+    background: #4A4949;
+    flex-grow: 1;
+    margin-left:10px;
+    margin-right:10px;
+    margin-top:5px;
+    margin-bottom:10px;
+    justify-content: space-around;
+}
+
+.simulateSection{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.mainSection{
+    width: 70%;
+    height: 100%;
+}
+
+.verticalSection{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    height: 25px;
+    background: #4A4949;
+    color: white;
+    text-align: start;
+    padding-left: 10px;
+    margin-left: 10px;
+    margin-right:10px;
+}
+
+.topHeader {
+    height: 25px;
+    background: #4A4949;
+    color: white;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.clear{
+    margin-left: auto;
+    color: red;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.selectSimulation {
+    background: #4A4949;
+    flex-grow: 1;
+    margin-left:10px;
+    margin-right:10px;
+    margin-top:5px;
+    margin-bottom:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card {
+    display: flex;
+    margin-top: 8px;
+    gap: 30px;
+    overflow-x: scroll;
+}
+
+.card_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.card_image{
+    height: 120px;
+}
+
+html, body, #root, .App {
+    height: 100%;
+    width: 100%;
+}
+
+.mainVideo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 100%;
+}
+.mainVideo img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+    margin-left:10px;
+    margin-right:10px;
+    margin-top:5px;
+    margin-bottom:10px;
+}
+.mainVideo iframe {
+    flex-shrink: 0;
+    min-height: 80%;
+    width: 90%;
+    margin-left:10px;
+    margin-right:10px;
+    margin-bottom:10px;
+}
+
+.zoomVideo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 10px;
+}
+.zoomVideo img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
+
+.first{
+    background: #D978BC;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+}
+
+#disable{
+    opacity: 0.2;
+}
+
+.modal{
+    height: 50vh;
+    width: 100vh;
+    display: block;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    outline: none;
+    background: white;
+}
+
+.second{
+    background: #78C6D9;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+}
+
+.third{
+    background: #D0E679;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+}
+
+.select{
+    background: rgba(211, 211, 211, 0.35);
+    color: white;
+    width: fit-content;
+    padding-left: 6px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 6px;
+    align-self: flex-end;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.choice{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.label{
+    width: 150px;
+    text-align: start;
+}
+
+.solid{
+    border-width: 3px;
+    border-color: black;
+    width: 98%;
+}
+
+#position{
+    border-color: #D978BC;
+}
+
+#orientation{
+    border-color: #78C6D9;
+}
+
+#detection{
+    border-color: #D0E679;
+}
+
+#selected{
+    opacity: 0.4;
+}
+
+.item_starred{
+    position: absolute;
+    z-index: 100;
+}
+
+.relative{
+    position: relative;
+}
