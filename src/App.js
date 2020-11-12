@@ -289,8 +289,8 @@ class App extends React.Component {
                 <div onClick={() => this.handleSimulationClick(item)} className="card_item" key={item.id}>
                     <div className="relative">
                         <img className="item_starred" onClick={() => this.handleStar(item.index, item.seenVideosIndex)} src={item.starred ? star_filled : star}/>
-                        <iframe className="card_image" src={item.video} id={item.id == this.state.current_simulation ? "selected" : "not_selected"}></iframe> 
-                        {/*<img className="card_image" id={item.id == this.state.current_simulation ? "selected" : "not_selected"} src={item.img} alt="Screenshot" />*/}
+                        {/*<iframe className="card_image" src={item.video} id={item.id == this.state.current_simulation ? "selected" : "not_selected"}></iframe> */}
+                        <img className="card_image" id={item.index == this.state.current_simulation ? "selected" : "not_selected"} src={item.img} alt="Screenshot" />
                     </div>
                     <hr className="solid" id={item.simulation_type}></hr>
                 </div>
@@ -327,15 +327,15 @@ return (
                     <div className="simulateChoices">
                         <div className="choice">
                             <img className="first" id={this.state.position_number == 3 ? "disable" : "none"} onClick={() => this.handleNewSimulation("position")} src={position} />
-                            <div className="label">Robot position </div>
+                            <div className="label" id={this.state.position_number == 3 ? "disable" : "none"}>Robot position </div>
                         </div>
                         <div className="choice">
                             <img className="second" id={this.state.orientation_number == 7 ? "disable" : "none"} onClick={() => this.handleNewSimulation("orientation")} src={orientation}  />
-                            <div className="label">Robot orientation </div>
+                            <div className="label" id={this.state.orientation_number == 7 ? "disable" : "none"}>Robot orientation </div>
                         </div>
                         <div className="choice">
                             <img className="third" id={this.state.detection_number == 11 ? "disable" : "none"} onClick={() => this.handleNewSimulation("detection")} src={detection}  />
-                            <div className="label">Obstacle detection </div>
+                            <div className="label" id={this.state.detection_number == 11 ? "disable" : "none"}>Obstacle detection </div>
                         </div>
                     </div>
                 </div>
