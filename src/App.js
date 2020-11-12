@@ -314,7 +314,7 @@ return (
                     </div> 
                 </div>
                 <div className="mainVideo">
-                    <iframe src={this.state[this.state.current_set][this.state.current_simulation].video}></iframe> 
+                    <iframe allow='autoplay; encrypted-media' src={this.state[this.state.current_set][this.state.current_simulation].video}></iframe> 
                     {/*<img src={this.state.items[this.state.current_simulation].img} alt="Screenshot" />*/}
                 </div>
             </div>
