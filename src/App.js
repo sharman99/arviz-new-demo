@@ -14,6 +14,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            //"http://drive.google.com/uc?export=view&id=FILEID" -> replace FILEID with string of character between file/d/ and /view in the gdrive link
             setA:[
                 { index: 0, seenVideosIndex: 0, id: "A11", video: "https://drive.google.com/file/d/1Tkq5xH-32hTepBKDz4iMDp8HKXIdXoo-/preview", img: temp_screenshot, current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false},
                 { index: 1, id: "A12", video: "https://drive.google.com/file/d/1RL8cAKi0R3kf__d2mZCYDXcCm53eqTT-/preview", img: temp_screenshot, current_simulation_text: "Position translated -5 cm along the x axis", simulation_type: "position", starred: false},
@@ -67,10 +68,11 @@ class App extends React.Component {
             orientation_number: 3, 
             detection_number: 7,
             current_simulation: 0,
-            signInModalOpened: true,
+            participantOpened: true,
             participant_number: '',
             mod: 0,
             round: 1,
+            selectModalOpened: false,
         };
         this.handleSimulationClick = this.handleSimulationClick.bind(this);
         this.handleSelect = this.handleSelect.bind(this);
@@ -79,6 +81,7 @@ class App extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.handleNewSimulation = this.handleNewSimulation.bind(this);
+        this.toggleSelectModal = this.toggleSelectModal.bind(this);
     }
 
     handleSimulationClick(item){
@@ -93,6 +96,8 @@ class App extends React.Component {
     }
 
     handleClear(){
+        this.setState({selectModalOpened : false})
+        
         //if we are on third round, this means we have been through A, B, and C - so don't do anything 
         if(this.state.round == 1){
             let seen = this.state.seenVideos
@@ -179,8 +184,12 @@ class App extends React.Component {
         }
     }
 
+    toggleSelectModal(){
+        this.setState({selectModalOpened : !this.state.selectModalOpened})
+    }
+
     toggleModal() {
-        this.setState(prevState => ({signInModalOpened: false}));
+        this.setState(prevState => ({participantOpened: false}));
 
         let mod = this.state.participant_number % 6;
         console.log("mod ", mod)
@@ -299,10 +308,16 @@ class App extends React.Component {
 return (
     <div className="App">
         <Modal className="modal"
-          isOpen={this.state.signInModalOpened}>
+          isOpen={this.state.participantOpened}>
               Enter Participant Number:   
           <input onChange={this.handleChange.bind(this)} value={this.state.participant_number} />
           <button onClick={() => this.toggleModal()}> Submit </button>
+        </Modal>
+        <Modal className="modal"
+          isOpen={this.state.selectModalOpened}>
+              You are about to select the current alternative as the most suitable one. Are you sure about that?
+              <button onClick={() => this.handleClear()}> Yes </button>
+              <button onClick={() => this.toggleSelectModal()}> Go Back </button>
         </Modal>
         <div className="topHalf">
             <div className="mainSection">
@@ -351,7 +366,7 @@ return (
                   <div className="header"> current simulation </div>
                   <div className="selectSimulation">
                       <div>{this.state[this.state.current_set][this.state.current_simulation].current_simulation_text}</div>
-                      <div className="select" onClick={() => this.handleClear()}> select &gt; </div>
+                      <div className="select" onClick={() => this.toggleSelectModal()}> select &gt; </div>
                   </div>
               </div>
           </div>
