@@ -1,6 +1,6 @@
 .App {
     text-align: center;
-    background: #2D2A2A;
+    background: #121212;
     color: white;
 }
 
@@ -21,7 +21,7 @@
 .scrollView {
     width: 70%;
     height: 100%;
-    background: #4A4949;
+    background: #2e2e2e;
 }
 
 .currentSimulationView {
@@ -34,7 +34,7 @@
 .simulateChoices {
     display: flex;
     flex-direction: column;
-    background: #4A4949;
+    background: #2e2e2e;
     flex-grow: 1;
     margin-left:10px;
     margin-right:10px;
@@ -63,7 +63,7 @@
 
 .header {
     height: 25px;
-    background: #4A4949;
+    background: #1e1e1e;
     color: white;
     text-align: start;
     padding-left: 10px;
@@ -73,7 +73,7 @@
 
 .topHeader {
     height: 25px;
-    background: #4A4949;
+    background: #1e1e1e;
     color: white;
     margin-top: 10px;
     padding-left: 10px;
@@ -91,7 +91,7 @@
 }
 
 .selectSimulation {
-    background: #4A4949;
+    background: #2e2e2e;
     flex-grow: 1;
     margin-left:10px;
     margin-right:10px;
@@ -163,7 +163,7 @@ html, body, #root, .App {
 }
 
 .first{
-    background: #D978BC;
+    background: #B473E0;
     width: 30px;
     height: 30px;
     padding: 5px;
@@ -186,21 +186,21 @@ html, body, #root, .App {
 }
 
 .second{
-    background: #78C6D9;
+    background: #65A1E2;
     width: 30px;
     height: 30px;
     padding: 5px;
 }
 
 .third{
-    background: #D0E679;
+    background: #71B8C2;
     width: 30px;
     height: 30px;
     padding: 5px;
 }
 
 .select{
-    background: rgba(211, 211, 211, 0.35);
+    background: #6d6d6d;
     color: white;
     width: fit-content;
     padding-left: 6px;
@@ -230,15 +230,15 @@ html, body, #root, .App {
 }
 
 #position{
-    border-color: #D978BC;
+    border-color: #B473E0;
 }
 
 #orientation{
-    border-color: #78C6D9;
+    border-color: #65A1E2;
 }
 
 #detection{
-    border-color: #D0E679;
+    border-color: #71B8C2;
 }
 
 #selected{
