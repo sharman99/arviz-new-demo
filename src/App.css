@@ -43,6 +43,24 @@
     justify-content: space-around;
 }
 
+.choose_improvement {
+    display: flex;
+    flex-direction: column;
+    background: #2e2e2e;
+    flex-grow: 1;
+    margin-left:10px;
+    margin-right:10px;
+    margin-top:5px;
+    margin-bottom:10px;
+    justify-content: space-around;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+}
+
 .simulateSection{
     display: flex;
     flex-direction: column;
@@ -97,8 +115,9 @@
     margin-right:10px;
     margin-top:5px;
     margin-bottom:10px;
+    padding: 10px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -212,6 +231,19 @@ html, body, #root, .App {
     margin-bottom: 15px;
 }
 
+.quit{
+    background: red;
+    color: white;
+    width: fit-content;
+    padding-left: 6px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 6px;
+    align-self: flex-end;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
 .choice{
     display: flex;
     flex-direction: row;
@@ -252,4 +284,16 @@ html, body, #root, .App {
 
 .relative{
     position: relative;
+}
+
+#current{
+    opacity: 100%;
+}
+
+#not_current{
+    opacity: 40%;
+}
+
+.text_descr{
+    font-size: 12px;
 }
