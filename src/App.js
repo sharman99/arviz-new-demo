@@ -74,6 +74,7 @@ class App extends React.Component {
             round: 1,
             selectModalOpened: false,
             clearModalOpened: false,
+            endModalOpened: false,
             current_seen_vid_index: 0,
             can_access_buttons: true,
         };
@@ -221,6 +222,7 @@ class App extends React.Component {
         }
         else{
             //do nothing - we are already on round 3
+            this.setState({endModalOpened : true})
         }
     }
 
@@ -269,6 +271,15 @@ class App extends React.Component {
 
     componentDidMount(){
 
+    }
+
+    componentDidUpdate(){
+        var element = document.getElementById("current_sim")
+        element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'end',
+            inline: 'nearest',
+          });
     }
 
     handleStar(id, seenVideosIndex){
@@ -343,7 +354,7 @@ class App extends React.Component {
     render() {
         let itemList = this.state.seenVideos.map(item => {
             return (
-                <div onClick={() => this.handleSimulationClick(item)} className="card_item" key={item.id}>
+                <div onClick={() => this.handleSimulationClick(item)} className="card_item" key={item.id} id={item.index == this.state.current_simulation ? "current_sim" : "not_current_sim"}> 
                     <div className="relative" id={item.index == this.state.current_simulation ? "current" : "not_current"}>
                         <img className="item_starred" onClick={() => this.handleStar(item.index, item.seenVideosIndex)} src={item.starred ? star_filled : star}/>
                         {/*<iframe className="card_image" src={item.video} id={item.id == this.state.current_simulation ? "selected" : "not_selected"}></iframe> */}
@@ -375,6 +386,10 @@ return (
               <button onClick={() => this.handleClear()}> Yes </button>
               <button onClick={() => this.toggleClearModal()}> Go Back </button>
         </Modal>
+        <Modal className="modal"
+          isOpen={this.state.endModalOpened}>
+              You have completed the session. Thank you!
+        </Modal>
         <div className="topHalf">
             <div className="mainSection">
                 <div className="topHeader"> 
@@ -384,7 +399,7 @@ return (
                     </div> 
                 </div>
                 <div className="mainVideo">
-                    <iframe allow='autoplay; encrypted-media' src={this.state[this.state.current_set][this.state.current_simulation].video}></iframe> 
+                    <iframe allow="autoplay" src={this.state[this.state.current_set][this.state.current_simulation].video}></iframe> 
                     {/*<img src={this.state.items[this.state.current_simulation].img} alt="Screenshot" />*/}
                 </div>
             </div>

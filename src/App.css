@@ -287,11 +287,12 @@ html, body, #root, .App {
 }
 
 #current{
-    opacity: 100%;
+    border-style: solid;
+    border-width: 2px;
 }
 
 #not_current{
-    opacity: 40%;
+    border: none;
 }
 
 .text_descr{
