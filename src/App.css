@@ -256,21 +256,22 @@ html, body, #root, .App {
 }
 
 .solid{
-    border-width: 3px;
-    border-color: black;
+    background-color: black;
+    border: none;
+    height: 3px;
     width: 98%;
 }
 
 #position{
-    border-color: #B473E0;
+    background-color: #B473E0;
 }
 
 #orientation{
-    border-color: #65A1E2;
+    background-color: #65A1E2;
 }
 
 #detection{
-    border-color: #71B8C2;
+    background-color: #71B8C2;
 }
 
 #selected{
