@@ -225,6 +225,8 @@ class App extends React.Component {
             //do nothing - we are already on round 3
             this.setState({endModalOpened : true})
         }
+
+        this.setState({can_access_buttons: true})
     }
 
     toggleSelectModal(){
@@ -335,6 +337,7 @@ class App extends React.Component {
                 }
             }
             this.setState({current_simulation: index})
+            console.log("current_simulation: " + index);
             
             let setA = [...this.state[this.state.current_set]];
             let curr = {...setA[index]};
