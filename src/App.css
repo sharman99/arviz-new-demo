@@ -2,45 +2,43 @@
     text-align: center;
     background: #121212;
     color: white;
+    overflow: hidden;
 }
 
 .topHalf{
     width: 100%;
-    height:75%;
+    height: 65%;
     display: flex;
     flex-direction: row;
+    flex: 1;
 }
 
 .bottomHalf{
     width: 100%;
-    height: 25%;
+    height: 45%;
     display: flex;
     flex-direction: row;
+    flex: 1;
+}
+
+.historyView {
+    min-width: 75%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    flex: 1;
 }
 
 .scrollView {
-    width: 70%;
-    height: 100%;
     background: #2e2e2e;
 }
 
 .currentSimulationView {
-    width: 30%;
-    height: 100%;
+    min-width: 20%;
     display: flex;
     flex-direction: column;
-}
-
-.simulateChoices {
-    display: flex;
-    flex-direction: column;
-    background: #2e2e2e;
-    flex-grow: 1;
-    margin-left:10px;
-    margin-right:10px;
-    margin-top:5px;
-    margin-bottom:10px;
-    justify-content: space-around;
+    margin: 10px;
+    flex: 1;
 }
 
 .choose_improvement {
@@ -48,13 +46,24 @@
     flex-direction: column;
     background: #2e2e2e;
     flex-grow: 1;
-    margin-left:10px;
-    margin-right:10px;
-    margin-top:5px;
-    margin-bottom:10px;
-    justify-content: space-around;
+    padding-top: 10px;
 }
-.row{
+
+.question {
+    text-align: left;
+    align: center;
+    padding-left: 10px;
+}
+
+#active { 
+    background: #2e2e2e;
+}
+
+#deactive { 
+    background: #1e1e1e;
+}
+
+.row {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -67,35 +76,49 @@
     flex-grow: 1;
 }
 
+
 .mainSection{
-    width: 70%;
-    height: 100%;
+    min-width: 75%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    flex: 1;
 }
 
 .verticalSection{
-    width: 30%;
-    height: 100%;
+    min-width: 20%;
     display: flex;
     flex-direction: column;
+    margin: 10px;
+    flex: 1;
+}
+
+.simulateChoices {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-around;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .header {
     height: 25px;
     background: #1e1e1e;
     color: white;
-    text-align: start;
+    text-align: left;
+    padding-top: 5px;
     padding-left: 10px;
-    margin-left: 10px;
-    margin-right:10px;
+    display: flex;
+    flex-direction: row;
 }
 
 .topHeader {
     height: 25px;
     background: #1e1e1e;
     color: white;
-    margin-top: 10px;
+    padding-top: 5px;
     padding-left: 10px;
-    padding-right: 10px;
     display: flex;
     flex-direction: row;
 }
@@ -110,15 +133,17 @@
 
 .selectSimulation {
     background: #2e2e2e;
-    flex-grow: 1;
-    margin-left:10px;
-    margin-right:10px;
-    margin-top:5px;
-    margin-bottom:10px;
+    max-height: 150px;
     padding: 10px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    flex: 1;
+}
+
+.finalQuestion {
+    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .card {
@@ -127,6 +152,19 @@
     gap: 30px;
     overflow-x: scroll;
 }
+
+::-webkit-scrollbar { 
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #1e1e1e;
+}
+ 
+::-webkit-scrollbar-thumb {
+    background-color: #545454;
+}
+
 
 .card_item{
     display: flex;
@@ -145,27 +183,23 @@ html, body, #root, .App {
 
 .mainVideo {
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    width: 100%;
     height: 100%;
 }
-.mainVideo img {
-    flex-shrink: 0;
-    min-width: 100%;
-    min-height: 100%;
-    margin-left:10px;
-    margin-right:10px;
-    margin-top:5px;
-    margin-bottom:10px;
-}
+
 .mainVideo iframe {
-    flex-shrink: 0;
-    min-height: 80%;
-    width: 90%;
-    margin-left:10px;
-    margin-right:10px;
-    margin-bottom:10px;
+    width: 100%;
+    height: 200%;
+    overflow: hidden;
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    pointer-events: none;
 }
 
 .zoomVideo {
@@ -173,7 +207,7 @@ html, body, #root, .App {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin: 10px;
+    margin-bottom: 10px;
 }
 .zoomVideo img {
     flex-shrink: 0;
@@ -181,11 +215,15 @@ html, body, #root, .App {
     min-height: 100%
 }
 
-.first{
+.first {
     background: #B473E0;
     width: 30px;
     height: 30px;
     padding: 5px;
+}
+
+.first:hover { 
+    filter: brightness(120%);
 }
 
 #disable{
@@ -193,15 +231,38 @@ html, body, #root, .App {
 }
 
 .modal{
-    height: 50vh;
-    width: 100vh;
+    height: 10vh;
+    width: 50vh;
     display: block;
     padding: 30px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 100px;
+    text-align: center;
     outline: none;
     background: white;
+}
+
+button { 
+    background: #7d7d7d;
+    color: white;
+    width: 100px;
+
+    padding-left: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 3px;
+    align-self: flex-end;
+
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: none;
+}
+
+button:hover { 
+    filter: brightness(120%);
 }
 
 .second{
@@ -211,6 +272,10 @@ html, body, #root, .App {
     padding: 5px;
 }
 
+.second:hover { 
+    filter: brightness(120%);
+}
+
 .third{
     background: #71B8C2;
     width: 30px;
@@ -218,31 +283,42 @@ html, body, #root, .App {
     padding: 5px;
 }
 
+.third:hover { 
+    filter: brightness(120%);
+}
+
 .select{
-    background: #6d6d6d;
+    background: #7d7d7d;
     color: white;
-    width: fit-content;
+    width: 100px;
     padding-left: 6px;
     padding-top: 3px;
     padding-bottom: 3px;
     padding-right: 6px;
     align-self: flex-end;
-    margin-right: 15px;
-    margin-bottom: 15px;
+    margin: 5px;
+}
+
+.select:hover { 
+    filter: brightness(120%);
 }
 
 .quit{
-    background: red;
+    background: #545454;
     color: white;
-    width: fit-content;
+    width: 100px;
     padding-left: 6px;
     padding-top: 3px;
     padding-bottom: 3px;
     padding-right: 6px;
     align-self: flex-end;
-    margin-right: 15px;
-    margin-bottom: 15px;
+    margin: 5px;
 }
+
+.quit:hover { 
+    filter: brightness(120%);
+}
+
 
 .choice{
     display: flex;
@@ -252,13 +328,15 @@ html, body, #root, .App {
 
 .label{
     width: 150px;
-    text-align: start;
+    padding-top: 10px;
+    text-align: left;
 }
 
 .solid{
     background-color: black;
     border: none;
     height: 3px;
+    margin-bottom: 10px;
     width: 98%;
 }
 
@@ -275,7 +353,7 @@ html, body, #root, .App {
 }
 
 #selected{
-    opacity: 0.4;
+    opacity: 0.75;
 }
 
 .item_starred{
