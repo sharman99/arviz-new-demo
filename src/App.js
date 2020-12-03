@@ -8,7 +8,7 @@ import star_filled from './star_filled.png';
 import orientation from './orientation.svg';
 import detection from './detection.svg';
 import position from './placeholder.svg';
-
+import {CSVLink, CSVDownload} from 'react-csv';
 
 class App extends React.Component {
     constructor(props) {
@@ -16,7 +16,6 @@ class App extends React.Component {
         this.state = {
             //"http://drive.google.com/uc?export=view&id=FILEID" -> replace FILEID with string of character between file/d/ and /view in the gdrive link
             setA:[
-            
                 { index: 0, seenVideosIndex: 0, id: "A11", video: "https://drive.google.com/file/d/1irSWT-p-Y4sYnPPLgr0nLEsy__dM483U/preview", img: "http://drive.google.com/uc?export=view&id=1Qw4M-dnvFL-XQJy3bddVUjohgc5S28k5", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
                 { index: 1, id: "A12", video: "https://drive.google.com/file/d/1boj2VJ4T1W-GglZz5el6sA8koYzTWsDQ/preview", img: "http://drive.google.com/uc?export=view&id=1ytCzRjlIXNJ_sVlg7X-txV5m5crXyrSQ", current_simulation_text: "Position translated -5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
                 { index: 2, id: "A13", video: "https://drive.google.com/file/d/1eC768JJgr1isYx8YtnO8OESyURv_vFhh/preview", img: "http://drive.google.com/uc?export=view&id=1KT52NC0pGb0QxUBAcYc4POVVeTiXIFg4", current_simulation_text: "Position translated +5 cm along the y axis", simulation_type: "position", starred: false, thumbs_up: false},
@@ -78,6 +77,9 @@ class App extends React.Component {
             endModalOpened: false,
             current_seen_vid_index: 0,
             can_access_buttons: true,
+            x: 0,
+            y: 0,
+            csvData: [],
         };
         this.handleSimulationClick = this.handleSimulationClick.bind(this);
         this.handleSelect = this.handleSelect.bind(this);
@@ -90,6 +92,18 @@ class App extends React.Component {
         this.toggleClearModal = this.toggleClearModal.bind(this);
         this.setThumbsDown = this.setThumbsDown.bind(this);
         this.setThumbsUp = this.setThumbsUp.bind(this);
+    }
+
+    _onMouseMove(e) {
+        this.setState({x: e.screenX, y: e.screenY});
+        let time = new Date().toLocaleString();
+        console.log(time);
+        let x = e.clientX - e.target.offsetLeft
+        let y = e.clientY - e.target.offsetTop
+        console.log("x: " + x + " y: " + y)
+        let newObj = [time, x, y]
+        this.setState({csvData: [...this.state.csvData, newObj]})
+        //console.log("x: " + e.screenX + " y: " + e.screenY)
     }
 
     setThumbsDown(){
@@ -127,8 +141,7 @@ class App extends React.Component {
         this.setState({current_simulation: item.index})
         console.log("set simulation to " + item.index);
         this.setState({current_seen_vid_index : item.seenVideosIndex})
-        //this.seenVidIndex = this.state.setA[this.state.current_simulation].seenVideosIndex;
-        this.setState({can_access_buttons : false})
+        this.setState({can_access_buttons : true})
     }
 
     handleSelect(){
@@ -137,6 +150,7 @@ class App extends React.Component {
     }
 
     handleClear(){
+        this.setState({initial: true})
         this.setState({selectModalOpened : false})
         this.setState({clearModalOpened: false})
         
@@ -148,9 +162,9 @@ class App extends React.Component {
                 //set to B
                 this.setState({ current_set : "setB"})
                 seen = [                
-                    { index: 0, seenVideosIndex: 0, id: "B11", video: "https://drive.google.com/file/d/1if0uuD-a6ma6Y--TYPxR3mnE8SbCsSri/preview", img: "http://drive.google.com/uc?export=view&id=1bnU3kBSn2UW0c20qLbf5NVJB_c9tDMiw", current_simulation_text: "First position alternative selected based on landmarks", simulation_type: "position", starred: false, thumbs_up: false},
+                    //{ index: 0, seenVideosIndex: 0, id: "B11", video: "https://drive.google.com/file/d/1if0uuD-a6ma6Y--TYPxR3mnE8SbCsSri/preview", img: "http://drive.google.com/uc?export=view&id=1bnU3kBSn2UW0c20qLbf5NVJB_c9tDMiw", current_simulation_text: "First position alternative selected based on landmarks", simulation_type: "position", starred: false, thumbs_up: false},
                 ]
-
+                this.setState({initialPhoto: "http://drive.google.com/uc?export=view&id=1u4Z6TDt7bOEm3fMS9iZh8sUSJ21sVnLH"})
                 this.setState({
                     seenVideos: seen
                 })
@@ -159,9 +173,9 @@ class App extends React.Component {
                 //set to C
                 this.setState({ current_set : "setC"})
                 seen = [
-                    { index: 0, seenVideosIndex: 0, id: "C11", video: "https://drive.google.com/file/d/1zc_AZFulH8VzaGrZZIR_AlScv7THPI0k/preview", img: "http://drive.google.com/uc?export=view&id=1K5ZbDR7wsnGzxfc7q_uiDixoDRpCJc4r", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
+                    //{ index: 0, seenVideosIndex: 0, id: "C11", video: "https://drive.google.com/file/d/1zc_AZFulH8VzaGrZZIR_AlScv7THPI0k/preview", img: "http://drive.google.com/uc?export=view&id=1K5ZbDR7wsnGzxfc7q_uiDixoDRpCJc4r", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
                 ]
-
+                this.setState({initialPhoto: "http://drive.google.com/uc?export=view&id=1HbmA5LZxv52e13af8V3z-yWbREPKRvFd"})
                 this.setState({
                     seenVideos: seen
                 })
@@ -170,9 +184,9 @@ class App extends React.Component {
                 //set to A
                 this.setState({ current_set : "setA"})
                 seen = [
-                    { index: 0, seenVideosIndex: 0, id: "A11", video: "https://drive.google.com/file/d/1Tkq5xH-32hTepBKDz4iMDp8HKXIdXoo-/preview", img: "http://drive.google.com/uc?export=view&id=1Qw4M-dnvFL-XQJy3bddVUjohgc5S28k5", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
+                    //{ index: 0, seenVideosIndex: 0, id: "A11", video: "https://drive.google.com/file/d/1Tkq5xH-32hTepBKDz4iMDp8HKXIdXoo-/preview", img: "http://drive.google.com/uc?export=view&id=1Qw4M-dnvFL-XQJy3bddVUjohgc5S28k5", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
                 ]
-
+                this.setState({initialPhoto: "http://drive.google.com/uc?export=view&id=1hc8otWURSljBv-o5yF4YssvsFDRWM8Sq"})
                 this.setState({
                     seenVideos: seen
                 })
@@ -188,9 +202,9 @@ class App extends React.Component {
                 //set to B
                 this.setState({ current_set : "setB"})
                 seen = [                
-                    { index: 0, seenVideosIndex: 0, id: "B11", video: "https://drive.google.com/file/d/1if0uuD-a6ma6Y--TYPxR3mnE8SbCsSri/preview", img: "http://drive.google.com/uc?export=view&id=1bnU3kBSn2UW0c20qLbf5NVJB_c9tDMiw", current_simulation_text: "First position alternative selected based on landmarks", simulation_type: "position", starred: false, thumbs_up: false},
+                    //{ index: 0, seenVideosIndex: 0, id: "B11", video: "https://drive.google.com/file/d/1if0uuD-a6ma6Y--TYPxR3mnE8SbCsSri/preview", img: "http://drive.google.com/uc?export=view&id=1bnU3kBSn2UW0c20qLbf5NVJB_c9tDMiw", current_simulation_text: "First position alternative selected based on landmarks", simulation_type: "position", starred: false, thumbs_up: false},
                 ]
-
+                this.setState({initialPhoto: "http://drive.google.com/uc?export=view&id=1u4Z6TDt7bOEm3fMS9iZh8sUSJ21sVnLH"})
                 this.setState({
                     seenVideos: seen
                 })
@@ -199,9 +213,9 @@ class App extends React.Component {
                 //set to C
                 this.setState({ current_set : "setC"})
                 seen = [
-                    { index: 0, seenVideosIndex: 0, id: "C11", video: "https://drive.google.com/file/d/1zc_AZFulH8VzaGrZZIR_AlScv7THPI0k/preview", img: "http://drive.google.com/uc?export=view&id=1K5ZbDR7wsnGzxfc7q_uiDixoDRpCJc4r", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
+                    //{ index: 0, seenVideosIndex: 0, id: "C11", video: "https://drive.google.com/file/d/1zc_AZFulH8VzaGrZZIR_AlScv7THPI0k/preview", img: "http://drive.google.com/uc?export=view&id=1K5ZbDR7wsnGzxfc7q_uiDixoDRpCJc4r", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
                 ]
-
+                this.setState({initialPhoto: "http://drive.google.com/uc?export=view&id=1HbmA5LZxv52e13af8V3z-yWbREPKRvFd"})
                 this.setState({
                     seenVideos: seen
                 })
@@ -210,9 +224,9 @@ class App extends React.Component {
                 //set to A
                 this.setState({ current_set : "setA"})
                 seen = [
-                    { index: 0, seenVideosIndex: 0, id: "A11", video: "https://drive.google.com/file/d/1Tkq5xH-32hTepBKDz4iMDp8HKXIdXoo-/preview", img: "http://drive.google.com/uc?export=view&id=1Qw4M-dnvFL-XQJy3bddVUjohgc5S28k5", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
+                   // { index: 0, seenVideosIndex: 0, id: "A11", video: "https://drive.google.com/file/d/1Tkq5xH-32hTepBKDz4iMDp8HKXIdXoo-/preview", img: "http://drive.google.com/uc?export=view&id=1Qw4M-dnvFL-XQJy3bddVUjohgc5S28k5", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
                 ]
-
+                this.setState({initialPhoto: "http://drive.google.com/uc?export=view&id=1hc8otWURSljBv-o5yF4YssvsFDRWM8Sq"})
                 this.setState({
                     seenVideos: seen
                 })
@@ -239,6 +253,7 @@ class App extends React.Component {
 
     toggleModal() {
         this.setState(prevState => ({participantOpened: false}));
+        this.setState({initial: true})
 
         let mod = this.state.participant_number % 6;
         console.log("mod ", mod)
@@ -247,8 +262,9 @@ class App extends React.Component {
             console.log("A")
             //start with A
             let seenVideos = [
-                { index: 0, seenVideosIndex: 0, id: "A11", video: "https://drive.google.com/file/d/1Tkq5xH-32hTepBKDz4iMDp8HKXIdXoo-/preview", img: "http://drive.google.com/uc?export=view&id=1Qw4M-dnvFL-XQJy3bddVUjohgc5S28k5", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
+                //{ index: 0, seenVideosIndex: 0, id: "A11", video: "https://drive.google.com/file/d/1Tkq5xH-32hTepBKDz4iMDp8HKXIdXoo-/preview", img: "http://drive.google.com/uc?export=view&id=1Qw4M-dnvFL-XQJy3bddVUjohgc5S28k5", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
             ];
+            this.setState({initialPhoto: "http://drive.google.com/uc?export=view&id=1hc8otWURSljBv-o5yF4YssvsFDRWM8Sq"})
             this.setState({seenVideos})
             this.setState({current_set: "setA"})
         }
@@ -256,8 +272,9 @@ class App extends React.Component {
             console.log("B")
             //start with B
             let seenVideos = [                
-                { index: 0, seenVideosIndex: 0, id: "B11", video: "https://drive.google.com/file/d/1if0uuD-a6ma6Y--TYPxR3mnE8SbCsSri/preview", img: "http://drive.google.com/uc?export=view&id=1bnU3kBSn2UW0c20qLbf5NVJB_c9tDMiw", current_simulation_text: "First position alternative selected based on landmarks", simulation_type: "position", starred: false, thumbs_up: false},
-            ]
+                //{ index: 0, seenVideosIndex: 0, id: "B11", video: "https://drive.google.com/file/d/1if0uuD-a6ma6Y--TYPxR3mnE8SbCsSri/preview", img: "http://drive.google.com/uc?export=view&id=1bnU3kBSn2UW0c20qLbf5NVJB_c9tDMiw", current_simulation_text: "First position alternative selected based on landmarks", simulation_type: "position", starred: false, thumbs_up: false},
+            ];
+            this.setState({initialPhoto: "http://drive.google.com/uc?export=view&id=1u4Z6TDt7bOEm3fMS9iZh8sUSJ21sVnLH"})
             this.setState({seenVideos})
             this.setState({current_set: "setB"})
         }
@@ -265,8 +282,9 @@ class App extends React.Component {
             console.log("C")
             //start with C
             let seenVideos = [
-                { index: 0, seenVideosIndex: 0, id: "C11", video: "https://drive.google.com/file/d/1zc_AZFulH8VzaGrZZIR_AlScv7THPI0k/preview", img: "http://drive.google.com/uc?export=view&id=1K5ZbDR7wsnGzxfc7q_uiDixoDRpCJc4r", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
-            ]
+                //{ index: 0, seenVideosIndex: 0, id: "C11", video: "https://drive.google.com/file/d/1zc_AZFulH8VzaGrZZIR_AlScv7THPI0k/preview", img: "http://drive.google.com/uc?export=view&id=1K5ZbDR7wsnGzxfc7q_uiDixoDRpCJc4r", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
+            ];
+            this.setState({initialPhoto: "http://drive.google.com/uc?export=view&id=1HbmA5LZxv52e13af8V3z-yWbREPKRvFd"})
             this.setState({seenVideos})
             this.setState({current_set: "setC"})
         }
@@ -278,11 +296,13 @@ class App extends React.Component {
 
     componentDidUpdate(){
         var element = document.getElementById("current_sim")
-        element.scrollIntoView({
+        if(element != null){
+            element.scrollIntoView({
             behavior: 'smooth',
             block: 'end',
             inline: 'nearest',
           });
+        }
     }
 
     handleStar(id, seenVideosIndex){
@@ -304,6 +324,7 @@ class App extends React.Component {
       }
 
     handleNewSimulation(type_of_simulation){
+        this.setState({initial: false})
         if(this.state.can_access_buttons){
             let index = 0;
             if(type_of_simulation === "position"){
@@ -356,6 +377,8 @@ class App extends React.Component {
     }
 
     render() {
+        const x = this.state.x;
+        const y = this.state.y;
         let itemList = this.state.seenVideos.map(item => {
             return (
                 <div onClick={() => this.handleSimulationClick(item)} className="card_item" key={item.id} id={item.index === this.state.current_simulation ? "current_sim" : "not_current_sim"}> 
@@ -371,7 +394,7 @@ class App extends React.Component {
             )
         })
 return (
-    <div className="App">
+    <div className="App" onMouseMove={this._onMouseMove.bind(this)}>
         <Modal className="modal"
           isOpen={this.state.participantOpened}>
               <div> Enter Participant Number: </div>
@@ -392,7 +415,8 @@ return (
         </Modal>
         <Modal className="modal"
           isOpen={this.state.endModalOpened}>
-              You have completed the session. Thank you!
+            <p>You have completed the session. Thank you!</p>
+            <CSVLink data={this.state.csvData} filename="mouse_tracking_arviz.csv">Download CSV</CSVLink>
         </Modal>
         <div className="topHalf">
             <div className="mainSection">
@@ -403,8 +427,9 @@ return (
                     </div> 
                 </div>
                 <div className="mainVideo">
-                    <iframe allow="autoplay" src={this.state[this.state.current_set][this.state.current_simulation].video}></iframe> 
-                    {/*<img src={this.state.items[this.state.current_simulation].img} alt="Screenshot" />*/}
+                    {this.state.initial ? 
+                        <img src={this.state.initialPhoto} alt="Initial Photo" /> :
+                        <iframe allow="autoplay" src={this.state[this.state.current_set][this.state.current_simulation].video}></iframe>}
                 </div>
             </div>
             <div className="verticalSection">
