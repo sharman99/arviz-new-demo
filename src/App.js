@@ -16,59 +16,22 @@ class App extends React.Component {
         this.state = {
             //"http://drive.google.com/uc?export=view&id=FILEID" -> replace FILEID with string of character between file/d/ and /view in the gdrive link
             setA:[
-                { index: 0, seenVideosIndex: 0, id: "A11", video: "https://drive.google.com/file/d/1irSWT-p-Y4sYnPPLgr0nLEsy__dM483U/preview", img: "http://drive.google.com/uc?export=view&id=1Qw4M-dnvFL-XQJy3bddVUjohgc5S28k5", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
-                { index: 1, id: "A12", video: "https://drive.google.com/file/d/1boj2VJ4T1W-GglZz5el6sA8koYzTWsDQ/preview", img: "http://drive.google.com/uc?export=view&id=1ytCzRjlIXNJ_sVlg7X-txV5m5crXyrSQ", current_simulation_text: "Position translated -5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
-                { index: 2, id: "A13", video: "https://drive.google.com/file/d/1eC768JJgr1isYx8YtnO8OESyURv_vFhh/preview", img: "http://drive.google.com/uc?export=view&id=1KT52NC0pGb0QxUBAcYc4POVVeTiXIFg4", current_simulation_text: "Position translated +5 cm along the y axis", simulation_type: "position", starred: false, thumbs_up: false},
-                { index: 3, id: "A14", video: "https://drive.google.com/file/d/1B68YSbD3KmccuRi0hMQ5rKHMa8hTv8bL/preview", img: "http://drive.google.com/uc?export=view&id=1HXc_Jf3XYbs9HnkJNodW3daIMVtTcxfP", current_simulation_text: "Position translated -5 cm along the y axis", simulation_type: "position", starred: false, thumbs_up: false},
-                { index: 4, id: "A21", video: "https://drive.google.com/file/d/1aeydz8Z-emta5PTUxAoUj2MlnxnO2lkg/preview", img: "http://drive.google.com/uc?export=view&id=1pQlWarYHPneCW_cd4yzTbp85GDl8NZOM", current_simulation_text: "Rotated counter clockwise by 5 degrees", simulation_type: "orientation", starred: false, thumbs_up: false},
-                { index: 5, id: "A22", video: "https://drive.google.com/file/d/15X6EIqlVD1buBA_1s74n0erexuSxTul9/preview", img: "http://drive.google.com/uc?export=view&id=12gxBuYCXOVTRJovqyADRQkfmPNRvykIK", current_simulation_text: "Rotated clockwise by 5 degrees", simulation_type: "orientation", starred: false, thumbs_up: false},
-                { index: 6, id: "A23", video: "https://drive.google.com/file/d/1RQimMx2AhpHJQbW4jOxgOuglXcwazEHj/preview", img: "http://drive.google.com/uc?export=view&id=1zAJHLBzjRP7rt8yPGZeVK1GyRwB4J5pw", current_simulation_text: "Rotated counter clockwise by 10 degrees", simulation_type: "orientation", starred: false, thumbs_up: false},
-                { index: 7, id: "A24", video: "https://drive.google.com/file/d/1MxjRC6O1qXR6aRRsgkmVFsBHhLFpojmS/preview", img: "http://drive.google.com/uc?export=view&id=1reTBwM5PBYXg_CuLRIrCA6Ilq7iC5igA", current_simulation_text: "Rotated clockwise by 10 degrees", simulation_type: "orientation", starred: false, thumbs_up: false},
-                { index: 8, id: "A31", video: "https://drive.google.com/file/d/1aALHfPZnFzBz6tFfT4OAbd6OjDj6dMSr/preview", img: "http://drive.google.com/uc?export=view&id=1js12WZjGoSdMNitq_JXrA3_WFoFaR3Eb", current_simulation_text: "Laser distance decreased by 2.5 cm", simulation_type: "detection", starred: false, thumbs_up: false},
-                { index: 9, id: "A32", video: "https://drive.google.com/file/d/17D-PINgaCwS5BzGJqD9zVpOMMWXRRb5D/preview" , img: "http://drive.google.com/uc?export=view&id=13YZnvqOLN-8cbSx1fSOMJACgJuB0gcYi", current_simulation_text: "Laser distance increased by 2.5 cm", simulation_type: "detection", starred: false, thumbs_up: false},
-                { index: 10, id: "A33", video: "https://drive.google.com/file/d/1yxb04XWcm0vVTJ201Vu-THLUVyvmbYWR/preview", img: "http://drive.google.com/uc?export=view&id=154ClLxBAwwM-herWPNTE4AaHSmOZ3G_z", current_simulation_text: "Laser intensity threshold increased to 100 ", simulation_type: "detection", starred: false, thumbs_up: false},
-                { index: 11, id: "A34", video: "https://drive.google.com/file/d/13MkELaBwVXL9I86VEIWghz7QvW7iFCN4/preview", img: "http://drive.google.com/uc?export=view&id=156RyjzLiPoTwMud1gS0-449kt0S6I-tF", current_simulation_text: "Laser outlier threshold increased to 50 cm", simulation_type: "detection", starred: false, thumbs_up: false},
-            ],
-            setB:[
-                { index: 0, seenVideosIndex: 0, id: "B11", video: "https://drive.google.com/file/d/16PnbsdHTkyUVpahwBbLpwmXpfSrGWpyf/preview", img: "http://drive.google.com/uc?export=view&id=1bnU3kBSn2UW0c20qLbf5NVJB_c9tDMiw", current_simulation_text: "First position alternative selected based on landmarks", simulation_type: "position", starred: false, thumbs_up: false},
-                { index: 1, id: "B12", video: "https://drive.google.com/file/d/1zD38BDYuJ-jOKNgXeWFdOTEXHe7RyD4w/preview", img: "http://drive.google.com/uc?export=view&id=1G9isdVDI_jaxGVWnvBgaUwlBzKtSF3mJ", current_simulation_text: "Second position alternative selected based on landmarks", simulation_type: "position", starred: false, thumbs_up: false},
-                { index: 2, id: "B13", video: "https://drive.google.com/file/d/1ffBmyI2epmDSf2QEYYjbU9fHJ85rpVJe/preview", img: "http://drive.google.com/uc?export=view&id=1MFY5xc4OTK_NkKSeBkE599hvRjRWBiSW", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
-                { index: 3, id: "B14", video: "https://drive.google.com/file/d/1jM7SKDE1UUnBzIZbwkd46EpVtRVeLx_V/preview", img: "http://drive.google.com/uc?export=view&id=1COM1pY5pbPPSiul8uUNc6D7fa8rsjRf3", current_simulation_text: "Position translated -5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
-                { index: 4, id: "B21", video: "https://drive.google.com/file/d/15fP2QFJY4M0aQFAzBhNXMHqb-Pt6aPUq/preview" , img: "http://drive.google.com/uc?export=view&id=17D6OGC36BgaiY9XDkGN_iEw_TQYCWfqC", current_simulation_text: "Rotated counter clockwise by 5 degrees", simulation_type: "orientation", starred: false, thumbs_up: false},
-                { index: 5, id: "B22", video: "https://drive.google.com/file/d/1s_deHnpLn10uFnj0WtVm28SgouFnWoDP/preview", img: "http://drive.google.com/uc?export=view&id=1oY7o3ViKkY79IowQkim7umaVs9VaWUCN", current_simulation_text: "Rotated clockwise by 5 degrees", simulation_type: "orientation", starred: false, thumbs_up: false},
-                { index: 6, id: "B23", video: "https://drive.google.com/file/d/1M8jBktj6OY7PHUUDQI-B0lAY5C9OOqXU/preview", img: "http://drive.google.com/uc?export=view&id=1HpbFSs9jm_S5bRMy7I2DqrTPcdYuu-h_", current_simulation_text: "Rotated counter clockwise by 10 degrees", simulation_type: "orientation", starred: false, thumbs_up: false},
-                { index: 7, id: "B24", video: "https://drive.google.com/file/d/1oW7npqUU26OSXPYkDhYt5UUYCje-zi9j/preview" , img: "http://drive.google.com/uc?export=view&id=1LPFBnSFdXoFe3gvigaUiHrgQj7eDqYrs", current_simulation_text: "Rotated clockwise by 10 degrees", simulation_type: "orientation", starred: false, thumbs_up: false},
-                { index: 8, id: "B31", video: "https://drive.google.com/file/d/1ZzN1lYO4VX9ZXkf8p3A4fVD8quUSka2m/preview", img: "http://drive.google.com/uc?export=view&id=1zOU0FpL1CgLeSsNw_1sE6MF0DU9QsN0z", current_simulation_text: "Laser distance decreased by 2.5 cm", simulation_type: "detection", starred: false, thumbs_up: false},
-                { index: 9, id: "B32", video: "https://drive.google.com/file/d/10nFdxYraR0Sqns7hbYKxzjg2UNU2bY4g/preview" , img: "http://drive.google.com/uc?export=view&id=1WTmwT_h18U-rTdSkirOdjSjNsV6Y_hf7", current_simulation_text: "Laser distance increased by 2.5 cm", simulation_type: "detection", starred: false, thumbs_up: false},
-                { index: 10, id: "B33", video: "https://drive.google.com/file/d/12y7CCv4CpiRQHw7CC6_Rf55a2WfD8nM1/preview", img: "http://drive.google.com/uc?export=view&id=1WvgjqmTE_fxz1AGbcPTV1517z5W26Vqa", current_simulation_text: "Laser shadow filter angle reduced to 0 ", simulation_type: "detection", starred: false, thumbs_up: false},
-                { index: 11, id: "B34", video: "https://drive.google.com/file/d/1yBvT0Tw50yQHmkY7afu84wa5s00FycYx/preview" , img: "http://drive.google.com/uc?export=view&id=12vLvqWdWWRJ6pjRa0fSd603jkcohwTOZ", current_simulation_text: "Laser shadow filter angle increased to 180", simulation_type: "detection", starred: false, thumbs_up: false},
-            ],
-            setC:[
-                { index: 0, seenVideosIndex: 0, id: "C11", video: "https://drive.google.com/file/d/1ZM0BYVLPx_BHobcMexgH_bn53sbCUdd9/preview", img: "http://drive.google.com/uc?export=view&id=1K5ZbDR7wsnGzxfc7q_uiDixoDRpCJc4r", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
-                { index: 1, id: "C12", video: "https://drive.google.com/file/d/121DGfvfAT5ip3fhJs84VaBZK1laAIN7u/preview" , img: "http://drive.google.com/uc?export=view&id=1UktyKS48CawgQW7AXpd0423g73zrfI6V", current_simulation_text: "Position translated -5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
-                { index: 2, id: "C13", video: "https://drive.google.com/file/d/1WLxA0aQfCF__VwrTV92QlnSfVRePbP6d/preview", img: "http://drive.google.com/uc?export=view&id=1CLVw3hL8JJt7zY4k5THZuqpIofGG79pC", current_simulation_text: "Position translated +5 cm along the y axis", simulation_type: "position", starred: false, thumbs_up: false},
-                { index: 3, id: "C14", video: "https://drive.google.com/file/d/1z2_gAwnJiHIrinOuGJkXL4VKd7cNH77O/preview", img: "http://drive.google.com/uc?export=view&id=1SciueHVGCWweJEIn-atnrlSbQjDzpWq0", current_simulation_text: "Position translated -5 cm along the y axis", simulation_type: "position", starred: false, thumbs_up: false},
-                { index: 4, id: "C21", video: "https://drive.google.com/file/d/1I89x3YLQFgsMui8k4_uIoLVM2zFAQUlG/preview", img: "http://drive.google.com/uc?export=view&id=1EDQxnrBTaU5sK2x3RTLrYDJ3JlJOBjKR", current_simulation_text: "Rotated counter clockwise by 5 degrees", simulation_type: "orientation", starred: false, thumbs_up: false},
-                { index: 5, id: "C22", video: "https://drive.google.com/file/d/1ldPcM76k371rHMg9Oy96Z0lcBt5BLzvj/preview" , img: "http://drive.google.com/uc?export=view&id=17FzttLchJDsvDoj9pOVyKytM-ZvUys7g", current_simulation_text: "Rotated clockwise by 5 degrees", simulation_type: "orientation", starred: false, thumbs_up: false},
-                { index: 6, id: "C23", video: "https://drive.google.com/file/d/1wGQOZpP_sFC5e7yo65Ng9o3A3OgzB0CN/preview" , img: "http://drive.google.com/uc?export=view&id=1a3eskT3e-8wOTvNp2lNrmuwYOMXVk2Vy", current_simulation_text: "Rotated counter clockwise by 10 degrees", simulation_type: "orientation", starred: false, thumbs_up: false},
-                { index: 7, id: "C24", video: "https://drive.google.com/file/d/167hQKsgCqLbxLHYECIv1s_zeG_U76fjt/preview", img: "http://drive.google.com/uc?export=view&id=1TOvJQRX5GV-fbD21tOwcded02WPGo6yb", current_simulation_text: "Rotated clockwise by 10 degrees", simulation_type: "orientation", starred: false, thumbs_up: false},
-                { index: 8, id: "C31", video: "https://drive.google.com/file/d/14xBkANFpyWLFXHrWZT2PT5205vU3v4gw/preview", img: "http://drive.google.com/uc?export=view&id=1KuWABwMqcl7NIjfkffOUDG4DcTFMmmCn", current_simulation_text: "Laser distance decreased by 2.5 cm", simulation_type: "detection", starred: false, thumbs_up: false},
-                { index: 9, id: "C32", video: "https://drive.google.com/file/d/1116DBi9s0WnktIvb_8RJiiLdauos4DFw/preview" , img: "http://drive.google.com/uc?export=view&id=13bmGnMeSZ_mVjo1xOA9qklRFmGfE3TTT", current_simulation_text: "Laser distance increased by 2.5 cm", simulation_type: "detection", starred: false, thumbs_up: false},
-                { index: 10, id: "C33", video: "https://drive.google.com/file/d/19jOTx_SalJuNFH_rrfYtVFKIqr3ltcdF/preview", img: "http://drive.google.com/uc?export=view&id=1OtW2_LSMoKytYnIFfz-Q-cNNiOrta7A3", current_simulation_text: "Laser shadow filter angle reduced to 0 ", simulation_type: "detection", starred: false, thumbs_up: false},
-                { index: 11, id: "C34", video: "https://drive.google.com/file/d/1SjPVplHtFz_bT9wVIFb3B7Qiq1IF5wX_/preview", img: "http://drive.google.com/uc?export=view&id=1ARkVERMlYIsuO4V51LqLqRtoK3BclXVW", current_simulation_text: "Laser shadow filter angle increased to 180", simulation_type: "detection", starred: false, thumbs_up: false},
+                { index: 0, seenVideosIndex: 0, id: "D1", video: "https://drive.google.com/file/d/1FMMJiPAX6_NTqlDJ8dcErIHo4SVOzD-M/preview", img: "http://drive.google.com/uc?export=view&id=1Qw4M-dnvFL-XQJy3bddVUjohgc5S28k5", current_simulation_text: "Padding increased by 2.5 cm", simulation_type: "safety", starred: false, thumbs_up: false},
+                { index: 1, id: "D2", video: "https://drive.google.com/file/d/1B5AmJCvlv6PnikiPRMN1vUWGen55Pqyr/preview", img: "http://drive.google.com/uc?export=view&id=1ytCzRjlIXNJ_sVlg7X-txV5m5crXyrSQ", current_simulation_text: "Padding decreased by 2.5 cm", simulation_type: "safety", starred: false, thumbs_up: false},
+                { index: 2, id: "D3", video: "https://drive.google.com/file/d/1fA2s9U-QzH8BBLcLKeeSljowinPCGvaC/preview", img: "http://drive.google.com/uc?export=view&id=1KT52NC0pGb0QxUBAcYc4POVVeTiXIFg4", current_simulation_text: "Padding decreased by 2.5 cm", simulation_type: "safety", starred: false, thumbs_up: false},
             ],
             set_empty:[
 
             ],
             seenVideos:[
-                { index: 0, seenVideosIndex: 0, id: "A11", video: "https://drive.google.com/file/d/1Tkq5xH-32hTepBKDz4iMDp8HKXIdXoo-/preview", img: "http://drive.google.com/uc?export=view&id=1Qw4M-dnvFL-XQJy3bddVUjohgc5S28k5", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
+                //{ index: 0, seenVideosIndex: 0, id: "A11", video: "https://drive.google.com/file/d/1Tkq5xH-32hTepBKDz4iMDp8HKXIdXoo-/preview", img: "http://drive.google.com/uc?export=view&id=1Qw4M-dnvFL-XQJy3bddVUjohgc5S28k5", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
             ],
             current_set: "setA",
             position_number: 0,
             orientation_number: 3, 
             detection_number: 7,
             current_simulation: 0,
-            participantOpened: true,
+            //participantOpened: true,
             participant_number: '',
             mod: 0,
             round: 1,
@@ -86,7 +49,7 @@ class App extends React.Component {
         this.handleClear = this.handleClear.bind(this);
         this.handleStar = this.handleStar.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.toggleModal = this.toggleModal.bind(this);
+        //this.toggleModal = this.toggleModal.bind(this);
         this.handleNewSimulation = this.handleNewSimulation.bind(this);
         this.toggleSelectModal = this.toggleSelectModal.bind(this);
         this.toggleClearModal = this.toggleClearModal.bind(this);
@@ -154,93 +117,7 @@ class App extends React.Component {
         this.setState({selectModalOpened : false})
         this.setState({clearModalOpened: false})
         
-        //if we are on third round, this means we have been through A, B, and C - so don't do anything 
-        if(this.state.round === 1){
-            let seen = this.state.seenVideos
-            console.log("cleared current view");
-            if(this.state.mod === 0 || this.state.mod === 3){
-                //set to B
-                this.setState({ current_set : "setB"})
-                seen = [                
-                    //{ index: 0, seenVideosIndex: 0, id: "B11", video: "https://drive.google.com/file/d/1if0uuD-a6ma6Y--TYPxR3mnE8SbCsSri/preview", img: "http://drive.google.com/uc?export=view&id=1bnU3kBSn2UW0c20qLbf5NVJB_c9tDMiw", current_simulation_text: "First position alternative selected based on landmarks", simulation_type: "position", starred: false, thumbs_up: false},
-                ]
-                this.setState({initialPhoto: "http://drive.google.com/uc?export=view&id=1u4Z6TDt7bOEm3fMS9iZh8sUSJ21sVnLH"})
-                this.setState({
-                    seenVideos: seen
-                })
-            }
-            else if(this.state.mod === 1 || this.state.mod === 4){
-                //set to C
-                this.setState({ current_set : "setC"})
-                seen = [
-                    //{ index: 0, seenVideosIndex: 0, id: "C11", video: "https://drive.google.com/file/d/1zc_AZFulH8VzaGrZZIR_AlScv7THPI0k/preview", img: "http://drive.google.com/uc?export=view&id=1K5ZbDR7wsnGzxfc7q_uiDixoDRpCJc4r", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
-                ]
-                this.setState({initialPhoto: "http://drive.google.com/uc?export=view&id=1HbmA5LZxv52e13af8V3z-yWbREPKRvFd"})
-                this.setState({
-                    seenVideos: seen
-                })
-            }
-            else{
-                //set to A
-                this.setState({ current_set : "setA"})
-                seen = [
-                    //{ index: 0, seenVideosIndex: 0, id: "A11", video: "https://drive.google.com/file/d/1Tkq5xH-32hTepBKDz4iMDp8HKXIdXoo-/preview", img: "http://drive.google.com/uc?export=view&id=1Qw4M-dnvFL-XQJy3bddVUjohgc5S28k5", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
-                ]
-                this.setState({initialPhoto: "http://drive.google.com/uc?export=view&id=1hc8otWURSljBv-o5yF4YssvsFDRWM8Sq"})
-                this.setState({
-                    seenVideos: seen
-                })
-            }
-    
-            this.setState({position_number : 0, orientation_number: 3, detection_number: 7, current_simulation : 0})
-            this.setState({round : this.state.round + 1})
-        }
-        else if(this.state.round === 2){
-            let seen = this.state.seenVideos
-            console.log("cleared current view");
-            if(this.state.mod === 2  || this.state.mod === 4){
-                //set to B
-                this.setState({ current_set : "setB"})
-                seen = [                
-                    //{ index: 0, seenVideosIndex: 0, id: "B11", video: "https://drive.google.com/file/d/1if0uuD-a6ma6Y--TYPxR3mnE8SbCsSri/preview", img: "http://drive.google.com/uc?export=view&id=1bnU3kBSn2UW0c20qLbf5NVJB_c9tDMiw", current_simulation_text: "First position alternative selected based on landmarks", simulation_type: "position", starred: false, thumbs_up: false},
-                ]
-                this.setState({initialPhoto: "http://drive.google.com/uc?export=view&id=1u4Z6TDt7bOEm3fMS9iZh8sUSJ21sVnLH"})
-                this.setState({
-                    seenVideos: seen
-                })
-            }
-            else if(this.state.mod === 0 || this.state.mod === 5){
-                //set to C
-                this.setState({ current_set : "setC"})
-                seen = [
-                    //{ index: 0, seenVideosIndex: 0, id: "C11", video: "https://drive.google.com/file/d/1zc_AZFulH8VzaGrZZIR_AlScv7THPI0k/preview", img: "http://drive.google.com/uc?export=view&id=1K5ZbDR7wsnGzxfc7q_uiDixoDRpCJc4r", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
-                ]
-                this.setState({initialPhoto: "http://drive.google.com/uc?export=view&id=1HbmA5LZxv52e13af8V3z-yWbREPKRvFd"})
-                this.setState({
-                    seenVideos: seen
-                })
-            }
-            else{
-                //set to A
-                this.setState({ current_set : "setA"})
-                seen = [
-                   // { index: 0, seenVideosIndex: 0, id: "A11", video: "https://drive.google.com/file/d/1Tkq5xH-32hTepBKDz4iMDp8HKXIdXoo-/preview", img: "http://drive.google.com/uc?export=view&id=1Qw4M-dnvFL-XQJy3bddVUjohgc5S28k5", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
-                ]
-                this.setState({initialPhoto: "http://drive.google.com/uc?export=view&id=1hc8otWURSljBv-o5yF4YssvsFDRWM8Sq"})
-                this.setState({
-                    seenVideos: seen
-                })
-            }
-    
-            this.setState({position_number : 0, orientation_number: 3, detection_number: 7, current_simulation : 0})
-            this.setState({round : this.state.round + 1})
-        }
-        else{
-            //do nothing - we are already on round 3
-            this.setState({endModalOpened : true})
-        }
-
-        this.setState({can_access_buttons: true})
+        this.setState({endModalOpened : true})
     }
 
     toggleSelectModal(){
@@ -251,7 +128,7 @@ class App extends React.Component {
         this.setState({clearModalOpened : !this.state.clearModalOpened})
     }
 
-    toggleModal() {
+    /*toggleModal() {
         this.setState(prevState => ({participantOpened: false}));
         this.setState({initial: true})
 
@@ -288,10 +165,11 @@ class App extends React.Component {
             this.setState({seenVideos})
             this.setState({current_set: "setC"})
         }
-    }
+    }*/
 
     componentDidMount(){
-
+        this.setState({initial: true})
+        this.setState({initialPhoto: "http://drive.google.com/uc?export=view&id=1hc8otWURSljBv-o5yF4YssvsFDRWM8Sq"})
     }
 
     componentDidUpdate(){
@@ -327,35 +205,12 @@ class App extends React.Component {
         this.setState({initial: false})
         if(this.state.can_access_buttons){
             let index = 0;
-            if(type_of_simulation === "position"){
-                //generate new position simulation
-                if(this.state.position_number < 3){
+            if(this.state.position_number < 3){
                     index = this.state.position_number + 1;
                     this.setState({ position_number: index })
-                }
-                else{
-                    return;
-                }
-            }
-            else if(type_of_simulation === "orientation"){
-                //generate new orientation simulation
-                if(this.state.orientation_number < 7){
-                    index = this.state.orientation_number + 1;
-                    this.setState({ orientation_number: index })
-                }
-                else{
-                    return;
-                }
             }
             else{
-                //generate new detection simulation
-                if(this.state.detection_number < 11){
-                    index = this.state.detection_number + 1;
-                    this.setState({ detection_number: index })
-                }
-                else{
-                    return;
-                }
+                return;
             }
             this.setState({current_simulation: index})
             console.log("current_simulation: " + index);
@@ -441,15 +296,7 @@ return (
                     <div className="simulateChoices" id={(!this.state.can_access_buttons) ? "deactive" : "active"}>
                         <div className="choice">
                             <img className="first" id={(this.state.position_number === 3 || !this.state.can_access_buttons) ? "disable" : "none"} onClick={() => this.handleNewSimulation("position")} src={position} />
-                            <div className="label" id={(this.state.position_number === 3 || !this.state.can_access_buttons) ? "disable" : "none"}>Robot position </div>
-                        </div>
-                        <div className="choice">
-                            <img className="second" id={(this.state.orientation_number === 7 || !this.state.can_access_buttons) ? "disable" : "none"} onClick={() => this.handleNewSimulation("orientation")} src={orientation}  />
-                            <div className="label" id={(this.state.orientation_number === 7 || !this.state.can_access_buttons) ? "disable" : "none"}>Robot orientation </div>
-                        </div>
-                        <div className="choice">
-                            <img className="third" id={(this.state.detection_number === 11 || !this.state.can_access_buttons) ? "disable" : "none"} onClick={() => this.handleNewSimulation("detection")} src={detection}  />
-                            <div className="label" id={(this.state.detection_number === 11 || !this.state.can_access_buttons) ? "disable" : "none"}>Obstacle detection </div>
+                            <div className="label" id={(this.state.position_number === 3 || !this.state.can_access_buttons) ? "disable" : "none"}>Safety margin </div>
                         </div>
                     </div>
                 </div>

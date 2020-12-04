@@ -226,7 +226,7 @@ html, body, #root, .App {
 }
 
 .first {
-    background: #B473E0;
+    background: #C9E174;
     width: 30px;
     height: 30px;
     padding: 5px;
@@ -352,6 +352,10 @@ button:hover {
 
 #position{
     background-color: #B473E0;
+}
+
+#safety{
+    background-color: #C9E174;
 }
 
 #orientation{
