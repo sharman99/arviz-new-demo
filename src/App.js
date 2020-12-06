@@ -27,7 +27,7 @@ class App extends React.Component {
                 //{ index: 0, seenVideosIndex: 0, id: "A11", video: "https://drive.google.com/file/d/1Tkq5xH-32hTepBKDz4iMDp8HKXIdXoo-/preview", img: "http://drive.google.com/uc?export=view&id=1Qw4M-dnvFL-XQJy3bddVUjohgc5S28k5", current_simulation_text: "Position translated +5 cm along the x axis", simulation_type: "position", starred: false, thumbs_up: false},
             ],
             current_set: "setA",
-            position_number: 0,
+            position_number: -1,
             orientation_number: 3, 
             detection_number: 7,
             current_simulation: 0,
@@ -205,7 +205,7 @@ class App extends React.Component {
         this.setState({initial: false})
         if(this.state.can_access_buttons){
             let index = 0;
-            if(this.state.position_number < 3){
+            if(this.state.position_number < 2){
                     index = this.state.position_number + 1;
                     this.setState({ position_number: index })
             }
@@ -295,8 +295,8 @@ return (
                     <div className="header"> Generate alternate outcomes </div>
                     <div className="simulateChoices" id={(!this.state.can_access_buttons) ? "deactive" : "active"}>
                         <div className="choice">
-                            <img className="first" id={(this.state.position_number === 3 || !this.state.can_access_buttons) ? "disable" : "none"} onClick={() => this.handleNewSimulation("position")} src={position} />
-                            <div className="label" id={(this.state.position_number === 3 || !this.state.can_access_buttons) ? "disable" : "none"}>Safety margin </div>
+                            <img className="first" id={(this.state.position_number === 2 || !this.state.can_access_buttons) ? "disable" : "none"} onClick={() => this.handleNewSimulation("position")} src={position} />
+                            <div className="label" id={(this.state.position_number === 2 || !this.state.can_access_buttons) ? "disable" : "none"}>Safety margin </div>
                         </div>
                     </div>
                 </div>
